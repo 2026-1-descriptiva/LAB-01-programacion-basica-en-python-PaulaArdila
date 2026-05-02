@@ -27,7 +27,7 @@ def pregunta_09():
     """
 
     conteo = {}
-    with open("files\input\data.csv", newline="", encoding="utf-8") as f:
+    with open("files/input/data.csv", newline="", encoding="utf-8") as f:
         reader = csv.reader(f, delimiter="\t")
         for row in reader:
             diccionario = row[4]

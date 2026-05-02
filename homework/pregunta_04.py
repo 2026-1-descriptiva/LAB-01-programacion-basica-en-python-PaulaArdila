@@ -30,7 +30,7 @@ def pregunta_04():
 
     conteo_meses = {f"{i:02d}": 0 for i in range(1, 13)}
 
-    with open("files\input\data.csv", newline="", encoding="utf-8") as f:
+    with open("files/input/data.csv", newline="", encoding="utf-8") as f:
         reader = csv.reader(f, delimiter="\t")
         for row in reader:
            
