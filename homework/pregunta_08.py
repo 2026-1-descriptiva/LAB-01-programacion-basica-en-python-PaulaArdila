@@ -5,6 +5,7 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+import csv
 
 def pregunta_08():
     """
@@ -27,3 +28,26 @@ def pregunta_08():
      (9, ['A', 'B', 'C', 'E'])]
 
     """
+
+    agrupado = {}
+
+    with open("files\input\data.csv", newline="", encoding="utf-8") as f:
+        reader = csv.reader(f, delimiter="\t")
+        for row in reader:
+            letra = row[0]
+            numero = int(row[1])
+
+            if numero not in agrupado:
+                agrupado[numero] = set()  # uso set para evitar repetidos
+
+            agrupado[numero].add(letra)
+
+    resultado = [
+        (numero, sorted(list(agrupado[numero])))
+        for numero in sorted(agrupado.keys())
+    ]
+
+    return resultado
+
+if __name__ == "__main__":
+    pregunta_08()

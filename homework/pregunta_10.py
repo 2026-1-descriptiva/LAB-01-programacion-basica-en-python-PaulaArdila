@@ -5,6 +5,7 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+import csv
 
 def pregunta_10():
     """
@@ -20,3 +21,21 @@ def pregunta_10():
 
 
     """
+    resultado = []
+    with open("files\input\data.csv", newline="", encoding="utf-8") as f:
+        reader = csv.reader(f, delimiter="\t")
+        for row in reader:
+            letra = row[0]
+
+            col4 = row[3].split(",")
+
+            col5 = row[4].split(",")
+
+            resultado.append((letra, len(col4), len(col5)))
+
+    return resultado
+
+
+
+if __name__ == "__main__":
+    pregunta_10()
